@@ -18,40 +18,52 @@
 <button id="start">
     Start
 </button>
-<div id="question" class="hidden">
+<div id="hide" class="hidden">
 
 
 <h1>90s Tv Trivia Characters from Disney and Nickelodeon</h1>
-    <form>
+
+    <div id="time-left"></div>
+
+    <form id="triviaQuestions">
         <h3>Can you guess the right show for each character?</h3>
 
-        <div id="time-left"></div>
-
         <div>
+            <fieldset class="question">
             <img src="assets/images/stevens.gif" alt="Steven GIF"><br>
-            <input type="radio" name="questionOne" id="correctAnswer" value="Even Stevens"> Even Stevens<br>
-            <input type="radio" name="questionOne" id="incorrectAnswer" value="That/'s so Raven">That's so Raven <br>
-            <input type="radio" name="questionOne" id="incorrectAnswer" value="Boy Meets World">Boy Meets World <br>
+            <input type="radio" name="question1" value="correct"> Even Stevens<br>
+            <input type="radio" name="question1" value="wrong">That's so Raven <br>
+            <input type="radio" name="question1" value="wrong">Boy Meets World <br>
+            </fieldset>
         </div>
         <br>
         <div>
+            <fieldset class="question">
             <img src="assets/images/kim.gif" alt="Kim Possible GIF"><br>
-            <input type="radio" name="questionTwo" id="incorrectAnswer" value="Hey Arnold"> Hey Arnold<br>
-            <input type="radio" name="questionTwo" id="incorrectAnswer" value="Doug Funny"> Doug Funny<br>
-            <input type="radio" name="questionTwo" id="correctAnswer"value="Kim Possible"> Kim Possible<br>
+            <input type="radio" name="question2" value="wrong"> Hey Arnold<br>
+            <input type="radio" name="question2" value="wrong"> Doug Funny<br>
+            <input type="radio" name="question2" value="correct"> Kim Possible<br>
+            </fieldset>
+
         </div>
         <br>
         <div>
+            <fieldset class="question">
             <img src="assets/images/bmw.gif" alt="Boy Meets World GIF"><br>
-            <input type="radio" name="questionThree" id="incorrectAnswer" value="Angry Beavers"> Lizzie McGuire<br>
-            <input type="radio" name="questionThree" id="correctAnswer" value="Boy Meets World"> Boy Meets World<br>
-            <input type="radio" name="questionThree" id="incorrectAnswer" value="The Amanda Show"> The Amanda Show<br>
+            <input type="radio" name="question3" value="wrong"> Lizzie McGuire<br>
+            <input type="radio" name="question3" value="correct"> Boy Meets World<br>
+            <input type="radio" name="question3" value="wrong"> The Amanda Show<br>
+            </fieldset>
         </div>
         <br>
-        <input type="submit" value="Submit">
+        <button class="submit" onclick="return handleClick();" type="submit">Submit</button>
     </form>
-
-</div>
+    <div>   <p>Correct: </p>
+            <p>Incorrect: </p>
+            <p>Unanswered: </p>
+    </div>
+</div><!--end of hide/hidden-->
 </body>
 
 </html>
+

@@ -3,20 +3,22 @@ $(document).ready(function () {
     console.log("ready!");
 
 
-//start
+//start page
     $('#start').on('click', function () {
 
         $(function () {
             $('#hide').removeClass('hidden');
         });
-        $("#start").hide(); //start btn ends and removed and content shows
+       $("#start").hide(); //start btn ends and removed and content shows
 
         runTimer();
     });
 
-    var number = 5;
-    var intervalId;
 
+
+//start timer
+    var number = 8;
+    var intervalId;
 
     function runTimer() { //do not add timer inside click function - just call it in click function when needed
         intervalId = setInterval(decrement, 1000);
@@ -28,6 +30,8 @@ $(document).ready(function () {
 
         if (number === 0) {
             stopTimer();
+            $("#triviaQuestions").hide();
+
         }
     }
 
@@ -35,50 +39,46 @@ $(document).ready(function () {
         clearInterval(intervalId);
     }
 
-   // $("#submit").on("click", function () {
-    //     validate();
-    // });
-    //
-      //   var amoutCorrect = 0;
-    //   /*  var wrong = 0;
-    //     var unanswered = 3 - (correct - wrong);*/
 
+//Count answers
     var amountCorrect = 0;
     var amountWrong = 0;
+    var unanswered = 3;//pulling up -6 if no answer is selected if unanswered-- fixed but not added another else and adding unanswered -- to each if statement
 
+    $('.submit').on('click', function () {
 
-    for(var i = 1; i <= 45; i++) {
+        for(var i = 1; i <= 45; i++) {
 
-        var radios = document.getElementsByName("question" + i);
+            var radios = document.getElementsByName("question" + i);
 
-        for(var j = 0; j < radios.length; j++) {
-           // console.log(j); - going through each question and pulling index
-            var radio = radios[j];
-           // console.log(radios[j]); - going though each question and pulling the input
+            for(var j = 0; j < radios.length; j++) {
+               // console.log(j); - going through each question and pulling index - worked
+                var radio = radios[j];
+               // console.log(radios[j]); - going though each question and pulling the input - worked
 
-            if(radio.value === "correct" && radio.checked) {
-                amountCorrect++;
-                console.log("amount correct" + amountCorrect);//not showing up in console log
-            } else {
-                amountWrong++;
+                if(radio.value === "correct" && radio.checked) {
+                    amountCorrect++;
+                    unanswered --;
+
+                    //not showing up in console log
+                } else if (radio.value === "wrong" && radio.checked) {
+                    amountWrong++;
+                    unanswered --;
+                }
             }
         }
-    }
 
-
-       /* function validate() {
-
-            if (value === correct) {
-                correct ++;
-                alert("correct");
-            }
-            else {
-                wrong ++;
-                alert("wrong");
-            }
-        }*/
+        $("#correctResult").append(amountCorrect);
+        $("#wrongResult").append(amountWrong);
+        $("#unansweredResult").append(unanswered);
+    });
 
 
 
 }); //end of doc ready
-console.log("change timer to 45 sec");
+console.log("Reminder - change timer to 45 sec");
+
+//having a hard time with getting the answers to stay on the page for more than a millisecond when
+// the submit button is push - will stay on the page when the submit button is not push but wont show answers if
+//any were selected
+//

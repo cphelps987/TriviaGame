@@ -23,7 +23,7 @@
 
 <h1>90s Tv Trivia Characters from Disney and Nickelodeon</h1>
 
-    <div id="time-left"></div>
+    <span>Timer: <div id="time-left"></div></span>
 
     <form id="triviaQuestions">
         <h3>Can you guess the right show for each character?</h3>
@@ -56,11 +56,12 @@
             </fieldset>
         </div>
         <br>
-        <button class="submit" onclick="return handleClick();" type="submit">Submit</button>
+        <button class="submit" type="submit">Submit</button>
     </form>
-    <div>   <p>Correct: </p>
-            <p>Incorrect: </p>
-            <p>Unanswered: </p>
+    <div id="hideMe" class="hideThis">
+        <p>Correct: <span id="correctResult"></span></p>
+        <p>Incorrect: <span id="wrongResult"></span></p>
+        <p>Unanswered: <span id="unansweredResult"></span></p>
     </div>
 </div><!--end of hide/hidden-->
 </body>

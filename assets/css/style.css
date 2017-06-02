@@ -4,6 +4,25 @@ img {
 
 body {
     font-size: 1.5em;
+    background-image: url(../images/shapes-background.jpg);
+    color: rgba(255, 255, 255, 1);
+    background-size: auto;
+}
+
+fieldset {
+    background-color: black;
+    width: 5in;
+    color: white;
+    padding-top: 20px;
+}
+
+img {
+    border: solid;
+    border-top-width: thin;
+}
+
+#time-left {
+    font-size: 2em;
 }
 
 .hidden {

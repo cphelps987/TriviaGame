@@ -1,11 +1,12 @@
-img {
-    width: 5in;
-}
-
 body {
     font-size: 1.5em;
-    background-image: url(../images/shapes-background.jpg);
-    color: rgba(255, 255, 255, 1);
+    background-image: url(../images/shapes-background1.jpg);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;        
     background-size: auto;
 }
 
@@ -19,12 +20,17 @@ fieldset {
 img {
     border: solid;
     border-top-width: thin;
+    width: 5in;
 }
 
 #time-left {
     font-size: 2em;
 }
-
 .hidden {
     display: none;
 }
+
+
+
+
+

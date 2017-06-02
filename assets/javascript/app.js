@@ -6,10 +6,10 @@ $(document).ready(function () {
 //start page
     $('#start').on('click', function () {
 
-        $(function () {
-            $('#hide').removeClass('hidden');
-        });
-       $("#start").hide(); //start btn ends and removed and content shows
+         $(function () {
+             $('#hide').removeClass('hidden');
+         });
+       // $("#start").hide(); //start btn ends and removed and content shows
 
         runTimer();
     });
@@ -17,11 +17,12 @@ $(document).ready(function () {
 
 
 //start timer
-    var number = 8;
+    var number = 15;
     var intervalId;
 
     function runTimer() { //do not add timer inside click function - just call it in click function when needed
         intervalId = setInterval(decrement, 1000);
+        $("#start").hide();
     }
 
     function decrement() {
@@ -31,6 +32,7 @@ $(document).ready(function () {
         if (number === 0) {
             stopTimer();
             $("#triviaQuestions").hide();
+            results();
 
         }
     }
@@ -45,7 +47,9 @@ $(document).ready(function () {
     var amountWrong = 0;
     var unanswered = 3;//pulling up -6 if no answer is selected if unanswered-- fixed but not added another else and adding unanswered -- to each if statement
 
-    $('.submit').on('click', function () {
+    $('.submit').on('click', function (event) {
+
+        event.preventDefault();//ALWAYS ADD PREVENT DEFAULT!!!!
 
         for(var i = 1; i <= 45; i++) {
 
@@ -68,12 +72,20 @@ $(document).ready(function () {
             }
         }
 
-        $("#correctResult").append(amountCorrect);
-        $("#wrongResult").append(amountWrong);
-        $("#unansweredResult").append(unanswered);
+         $("#timer").hide();
+         $("#time-left").hide();
+         $("#triviaQuestions").hide();
+         $("#start").hide();
+
+         results();
     });
 
+    function results() {
+        $("#correctResult").html(amountCorrect);
+        $("#wrongResult").html(amountWrong);
+        $("#unansweredResult").html(unanswered);
 
+    }
 
 }); //end of doc ready
 console.log("Reminder - change timer to 45 sec");
